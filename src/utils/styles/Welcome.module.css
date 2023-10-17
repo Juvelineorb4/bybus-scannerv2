@@ -1,0 +1,82 @@
+.container {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #FFCE48; */
+  width: 100%;
+}
+.content {
+  padding: 20px;
+  margin-top: 50px;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+}
+.text {
+  flex: 1;
+  justify-content: center;
+}
+/* text */
+.name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.textName {
+  font-size: 22px;
+  /* color: #1a1528; */
+  margin-left: 5px;
+  font-family: "bold";
+}
+
+.textTitle {
+  font-size: 48px;
+  /* color: #1a1528; */
+  font-family: "bold";
+}
+.textSubtitle {
+  font-size: 16px;
+  /* color: #1a1528; */
+  margin-top: 16px;
+  font-family: "regular";
+}
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signin,
+.register {
+  text-align: center;
+  width: 100%;
+  padding: 20px 10px;
+  border-radius: 16px;
+}
+.signin {
+  /* background-color: #1a1528; */
+  margin-bottom: 16px;
+}
+.register {
+  /* background-color: #FF8811; */
+  margin-bottom: 28px;
+}
+.textSignIn,
+.textRegister {
+  text-align: center;
+  font-size: 14px;
+  font-family: "regular";
+}
+.textSignIn {
+  /* color: white; */
+}
+.textRegister {
+  /* color: #1a1528; */
+}
+.textContinue {
+  font-size: 14px;
+  color: #795100d2;
+  font-family: "thinItalic";
+}

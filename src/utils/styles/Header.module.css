@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+}
+
+.headerBO {
+  padding: 45px 20px 20px;
+}
+
+.headerWB,
+.header {
+  padding: 45px 20px 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffce48;
+}
+
+.left,
+.right,
+.home {
+  flex-direction: row;
+  align-items: center;
+}
+
+.back {
+  margin-right: 10px;
+}
+
+.textLogo {
+  font-family: "regular";
+  font-size: 18px;
+  letter-spacing: -1px;
+  /* color: #1a1528; */
+  margin-left: 5px;
+}
+
+.user {
+  margin-left: 10px;
+  border: 0.3px solid #000;
+  border-radius: 100px;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+}

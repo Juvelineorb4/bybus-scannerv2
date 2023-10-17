@@ -1,0 +1,17 @@
+.tabBarContainer {
+    flex-direction: row;
+    height: 75px;
+    align-self: center;
+    border: 1px solid #efeded;
+    background-color: white;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.slidingTab {
+    width: 70px;
+    height: 70px;
+    border-radius: 60px;
+    bottom: 25px;
+    border: 1px solid white;
+}
