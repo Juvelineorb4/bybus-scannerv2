@@ -2,7 +2,7 @@
   "expo": {
     "name": "scanner",
     "slug": "scanner",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./src/utils/images/icon.png",
     "userInterfaceStyle": "automatic",
