@@ -40,8 +40,7 @@ export const deleteCustomer = /* GraphQL */ `
   ) {
     deleteCustomer(input: $input, condition: $condition) {
       id
-      name
-      lastName
+      fullName
       ci
       email
       bookingID
@@ -82,8 +81,7 @@ export const deleteTicket = /* GraphQL */ `
       customerID
       customer {
         id
-        name
-        lastName
+        fullName
         ci
         email
         bookingID
@@ -902,8 +900,7 @@ export const createCustomer = /* GraphQL */ `
   ) {
     createCustomer(input: $input, condition: $condition) {
       id
-      name
-      lastName
+      fullName
       ci
       email
       bookingID
@@ -938,8 +935,7 @@ export const updateCustomer = /* GraphQL */ `
   ) {
     updateCustomer(input: $input, condition: $condition) {
       id
-      name
-      lastName
+      fullName
       ci
       email
       bookingID
@@ -980,8 +976,7 @@ export const createTicket = /* GraphQL */ `
       customerID
       customer {
         id
-        name
-        lastName
+        fullName
         ci
         email
         bookingID
@@ -1016,8 +1011,7 @@ export const updateTicket = /* GraphQL */ `
       customerID
       customer {
         id
-        name
-        lastName
+        fullName
         ci
         email
         bookingID

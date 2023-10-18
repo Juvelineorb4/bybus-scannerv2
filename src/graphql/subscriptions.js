@@ -782,8 +782,7 @@ export const onCreateCustomer = /* GraphQL */ `
   ) {
     onCreateCustomer(filter: $filter, owner: $owner) {
       id
-      name
-      lastName
+      fullName
       ci
       email
       bookingID
@@ -818,8 +817,7 @@ export const onUpdateCustomer = /* GraphQL */ `
   ) {
     onUpdateCustomer(filter: $filter, owner: $owner) {
       id
-      name
-      lastName
+      fullName
       ci
       email
       bookingID
@@ -854,8 +852,7 @@ export const onDeleteCustomer = /* GraphQL */ `
   ) {
     onDeleteCustomer(filter: $filter, owner: $owner) {
       id
-      name
-      lastName
+      fullName
       ci
       email
       bookingID
@@ -896,8 +893,7 @@ export const onCreateTicket = /* GraphQL */ `
       customerID
       customer {
         id
-        name
-        lastName
+        fullName
         ci
         email
         bookingID
@@ -932,8 +928,7 @@ export const onUpdateTicket = /* GraphQL */ `
       customerID
       customer {
         id
-        name
-        lastName
+        fullName
         ci
         email
         bookingID
@@ -968,8 +963,7 @@ export const onDeleteTicket = /* GraphQL */ `
       customerID
       customer {
         id
-        name
-        lastName
+        fullName
         ci
         email
         bookingID
