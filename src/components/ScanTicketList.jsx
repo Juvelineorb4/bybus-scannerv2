@@ -22,7 +22,7 @@ const ScanTicketList = ({ status = false, cancel = false, ticket }) => {
           width: 60,
         }}
       >
-        {ticket?.customer === null ? "--------" : ticket?.customer?.name}
+        {ticket?.customer === null ? "--------" : ticket?.customer?.fullName}
       </Text>
       <Text
         style={{

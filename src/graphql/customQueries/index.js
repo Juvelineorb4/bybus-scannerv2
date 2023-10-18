@@ -120,8 +120,7 @@ export const getBooking = /* GraphQL */ `
       customers {
         items {
           id
-          name
-          lastName
+          fullName
           ci
           email
           bookingID
@@ -143,7 +142,7 @@ export const getBooking = /* GraphQL */ `
           customerID
           customer {
             id
-            name
+            fullName
           }
           seating
           status

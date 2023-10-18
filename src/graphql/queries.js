@@ -833,8 +833,7 @@ export const getCustomer = /* GraphQL */ `
   query GetCustomer($id: ID!) {
     getCustomer(id: $id) {
       id
-      name
-      lastName
+      fullName
       ci
       email
       bookingID
@@ -871,8 +870,7 @@ export const listCustomers = /* GraphQL */ `
     listCustomers(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        name
-        lastName
+        fullName
         ci
         email
         bookingID
@@ -904,8 +902,7 @@ export const customersByBookingID = /* GraphQL */ `
     ) {
       items {
         id
-        name
-        lastName
+        fullName
         ci
         email
         bookingID
@@ -930,8 +927,7 @@ export const getTicket = /* GraphQL */ `
       customerID
       customer {
         id
-        name
-        lastName
+        fullName
         ci
         email
         bookingID
