@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 
 const ScanTicketList = ({ status = false, cancel = false, ticket }) => {
-  console.log(ticket);
+  console.log(ticket.customer);
   return (
     <View
       style={{

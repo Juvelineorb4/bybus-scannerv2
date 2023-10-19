@@ -1156,6 +1156,24 @@ export const getOrderDetail = /* GraphQL */ `
         __typename
       }
       bookingID
+      booking {
+        id
+        status
+        code
+        agencyID
+        officeID
+        departureCity
+        arrivalCity
+        stock
+        price
+        createdBy
+        driver
+        transport
+        owner
+        createdAt
+        updatedAt
+        __typename
+      }
       orderTickets {
         nextToken
         __typename

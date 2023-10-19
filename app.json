@@ -2,7 +2,7 @@
   "expo": {
     "name": "scanner",
     "slug": "scanner",
-    "version": "1.0.5",
+    "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./src/utils/images/icon.png",
     "userInterfaceStyle": "automatic",
@@ -54,7 +54,7 @@
         "android.permission.RECORD_AUDIO",
         "android.permission.CAMERA"
       ],
-      "versionCode": 15
+      "versionCode": 14
     },
     "web": {
       "favicon": "./src/utils/images/favicon.png"

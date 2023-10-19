@@ -1127,6 +1127,24 @@ export const createOrderDetail = /* GraphQL */ `
         __typename
       }
       bookingID
+      booking {
+        id
+        status
+        code
+        agencyID
+        officeID
+        departureCity
+        arrivalCity
+        stock
+        price
+        createdBy
+        driver
+        transport
+        owner
+        createdAt
+        updatedAt
+        __typename
+      }
       orderTickets {
         nextToken
         __typename
@@ -1168,6 +1186,24 @@ export const updateOrderDetail = /* GraphQL */ `
         __typename
       }
       bookingID
+      booking {
+        id
+        status
+        code
+        agencyID
+        officeID
+        departureCity
+        arrivalCity
+        stock
+        price
+        createdBy
+        driver
+        transport
+        owner
+        createdAt
+        updatedAt
+        __typename
+      }
       orderTickets {
         nextToken
         __typename
@@ -1209,6 +1245,24 @@ export const deleteOrderDetail = /* GraphQL */ `
         __typename
       }
       bookingID
+      booking {
+        id
+        status
+        code
+        agencyID
+        officeID
+        departureCity
+        arrivalCity
+        stock
+        price
+        createdBy
+        driver
+        transport
+        owner
+        createdAt
+        updatedAt
+        __typename
+      }
       orderTickets {
         nextToken
         __typename

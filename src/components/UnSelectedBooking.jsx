@@ -3,8 +3,8 @@ import React from "react";
 
 const UnselectedBooking = () => {
   return (
-    <View>
-      <Text>Viaje No Selecionado Por facor Seleciona Uno </Text>
+    <View style={{ flex: 1 }}>
+      <Text style={{ textAlign: "center" }}>Selecciona Un viaje!* </Text>
     </View>
   );
 };

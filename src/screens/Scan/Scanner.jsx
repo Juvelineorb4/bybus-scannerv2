@@ -6,6 +6,8 @@ import {
   View,
   Button,
   Alert,
+  ActivityIndicator,
+  Pressable,
 } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { Camera } from "expo-camera";
@@ -21,6 +23,7 @@ const Scanner = ({ navigation }) => {
   const selectTravel = useRecoilValue(travelSelect);
   const [error, setError] = useState("");
   const [msgSuccess, setMsgSuccess] = useState("");
+  const [isLoading, setIsloading] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -42,6 +45,7 @@ const Scanner = ({ navigation }) => {
         bookingID: selectTravel?.id,
       },
     };
+    setIsloading(true);
     try {
       const result = await API.graphql({
         query: checkScan,
@@ -60,6 +64,7 @@ const Scanner = ({ navigation }) => {
     } catch (error) {
       console.log("Error al chequiar Ticket: ", error.message);
     }
+    setIsloading(false);
   };
 
   const handleBarCodeScanned = async ({ type, data }) => {
@@ -108,8 +113,14 @@ const Scanner = ({ navigation }) => {
       {msgSuccess && <Text style={{ color: "green" }}>{msgSuccess}</Text>}
       {error && <Text style={{ color: "red" }}>{error}</Text>}
       {renderCamera()}
-      <TouchableOpacity style={styles.button} onPress={() => setScanned(false)}>
-        <Text style={styles.buttonText}>Escanea un ticket de nuevo</Text>
+
+      <TouchableOpacity
+        style={[styles.button]}
+        onPress={() => isLoading && setScanned(false)}
+      >
+        <Text style={styles.buttonText}>
+          {isLoading ? <ActivityIndicator /> : "Escanea tu ticket"}
+        </Text>
       </TouchableOpacity>
     </View>
   );

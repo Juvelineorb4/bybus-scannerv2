@@ -127,8 +127,14 @@ const Scan = ({ navigation }) => {
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
-    if (tokenProfile) fetchBookingsAvailable();
-    if (selectTravel?.id) fetchBooking();
+    if (tokenProfile) {
+      setTravels({});
+      fetchBookingsAvailable();
+    }
+    if (selectTravel?.id) {
+      setTravel(null);
+      fetchBooking();
+    }
     setTimeout(() => {
       setRefreshing(false);
     }, 2000);
