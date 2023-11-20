@@ -272,6 +272,7 @@ export const getOffice = /* GraphQL */ `
       address
       email
       phone
+      status
       employees {
         nextToken
         __typename
@@ -307,6 +308,7 @@ export const listOffices = /* GraphQL */ `
         address
         email
         phone
+        status
         owner
         createdAt
         updatedAt
@@ -341,6 +343,7 @@ export const officesByAgencyID = /* GraphQL */ `
         address
         email
         phone
+        status
         owner
         createdAt
         updatedAt
@@ -416,11 +419,13 @@ export const getEmployee = /* GraphQL */ `
         address
         email
         phone
+        status
         owner
         createdAt
         updatedAt
         __typename
       }
+      status
       owner
       lastConnection
       createdAt
@@ -445,6 +450,7 @@ export const listEmployees = /* GraphQL */ `
         type
         agencyID
         officeID
+        status
         owner
         lastConnection
         createdAt
@@ -480,6 +486,7 @@ export const employeesByAgencyID = /* GraphQL */ `
         type
         agencyID
         officeID
+        status
         owner
         lastConnection
         createdAt
@@ -515,6 +522,7 @@ export const employeesByOfficeID = /* GraphQL */ `
         type
         agencyID
         officeID
+        status
         owner
         lastConnection
         createdAt
@@ -598,6 +606,62 @@ export const transportsByOfficeID = /* GraphQL */ `
     }
   }
 `;
+export const getScheduleBooking = /* GraphQL */ `
+  query GetScheduleBooking($id: ID!) {
+    getScheduleBooking(id: $id) {
+      id
+      bookingID
+      booking {
+        id
+        status
+        code
+        agencyID
+        officeID
+        departureCity
+        arrivalCity
+        stock
+        price
+        createdBy
+        driver
+        transport
+        owner
+        createdAt
+        updatedAt
+        __typename
+      }
+      freq
+      owner
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const listScheduleBookings = /* GraphQL */ `
+  query ListScheduleBookings(
+    $filter: ModelScheduleBookingFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listScheduleBookings(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        bookingID
+        freq
+        owner
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
 export const getBooking = /* GraphQL */ `
   query GetBooking($id: ID!) {
     getBooking(id: $id) {
@@ -605,7 +669,35 @@ export const getBooking = /* GraphQL */ `
       status
       code
       agencyID
+      agency {
+        id
+        cognitoID
+        pin
+        name
+        rif
+        email
+        phone
+        owner
+        createdAt
+        updatedAt
+        __typename
+      }
       officeID
+      office {
+        id
+        agencyID
+        name
+        state
+        city
+        address
+        email
+        phone
+        status
+        owner
+        createdAt
+        updatedAt
+        __typename
+      }
       customers {
         nextToken
         __typename
@@ -655,6 +747,44 @@ export const listBookings = /* GraphQL */ `
     $nextToken: String
   ) {
     listBookings(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        status
+        code
+        agencyID
+        officeID
+        departureCity
+        arrivalCity
+        stock
+        price
+        createdBy
+        driver
+        transport
+        owner
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
+export const getBookingbyCode = /* GraphQL */ `
+  query GetBookingbyCode(
+    $code: String!
+    $sortDirection: ModelSortDirection
+    $filter: ModelBookingFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getBookingbyCode(
+      code: $code
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
       items {
         id
         status
