@@ -38,7 +38,7 @@
     margin: 10px 0px;
     /* font-weight: 100; */
     font-size: 17px;
-    font-family: 'light';
+    font-family: 'regular';
     text-align: center;
   }
   .line {
@@ -55,7 +55,7 @@
   .title {
     padding: 20px;
     /* font-weight: 100; */
-    font-family: 'light';
+    font-family: 'regular';
     font-size: 24px;
     margin-bottom: 10px;
   }
@@ -71,16 +71,16 @@
   }
   .textTitleSelect {
     /* font-weight: 100; */
-    font-family: 'light';
+    font-family: 'bold';
     font-size: 18px;
   }
   .textSubtitleSelect {
-    font-family: 'extralight';
+    font-family: 'regular';
     /* font-weight: 400; */
     font-size: 12px;
   }
   .titleSettings {
-    font-family: 'thinItalic';
+    font-family: 'bold';
     /* font-style: italic; */
     padding: 20px 20px 0px;
     /* font-weight: 100; */
@@ -101,7 +101,7 @@
   
   .textSearch {
     text-align: center;
-    font-family: "medium";
+    font-family: "bold";
     color: white;
     font-size: 15px;
   }

@@ -1,6 +1,7 @@
 import { Image, View } from "react-native";
 import React from "react";
 import CustomText from "./CustomText";
+import { Ionicons } from '@expo/vector-icons';
 
 const CustomSelect = ({
   title,
@@ -13,15 +14,9 @@ const CustomSelect = ({
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <View style={styled.iconLeft}>
           {icon.left && (
-            <Image
-              style={{
-                width: 30,
-                height: 30,
-                resizeMode: "contain",
-                alignSelf: "center",
-              }}
-              source={icon.left}
-            />
+            icon.left.type === 'ios' && (
+              <Ionicons name={icon.left.name} size={icon.left.size} color={icon.left.color} />
+            )
           )}
         </View>
         <CustomText title={title} subtitle={subtitle} styled={styled.text} />

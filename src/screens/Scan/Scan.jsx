@@ -12,7 +12,7 @@ import CustomButton from "@/components/CustomButton";
 import ScanTicketList from "@/components/ScanTicketList";
 import CustomTravels from "@/components/CustomTravels";
 import UnSelectedView from "@/components/UnSelectedBooking";
-import { AntDesign } from "@expo/vector-icons";
+import { Ionicons } from '@expo/vector-icons';
 // amplify
 import { API } from "aws-amplify";
 import * as queries from "@/graphql/customQueries";
@@ -164,7 +164,7 @@ const Scan = ({ navigation }) => {
             buttonStyles={[styles.scan, global.bgBlack]}
           />
           {error && (
-            <Text style={{ color: "red", textAlign: "center" }}>{error}</Text>
+            <Text style={{ color: "red", textAlign: "center", fontFamily: 'bold' }}>{error}</Text>
           )}
         </View>
         <BottomSheetModal bottomSheetStyle={{ flex: 1 }}>
@@ -176,7 +176,7 @@ const Scan = ({ navigation }) => {
                 <View style={{ marginHorizontal: 10, alignItems: "center" }}>
                   <Text
                     style={{
-                      fontFamily: "regular",
+                      fontFamily: "bold",
                       fontSize: 16,
                       marginBottom: 5,
                     }}
@@ -185,7 +185,7 @@ const Scan = ({ navigation }) => {
                   </Text>
                   <Text
                     style={{
-                      fontFamily: "regular",
+                      fontFamily: "bold",
                       fontSize: 16,
                     }}
                   >
@@ -200,7 +200,7 @@ const Scan = ({ navigation }) => {
                   onPress={clean}
                   style={{ justifyContent: "center", alignItems: "center" }}
                 >
-                  <AntDesign name="delete" size={24} color="red" />
+                  <Ionicons name="ios-trash" size={24} color="red" />
                 </TouchableOpacity>
               </View>
 
@@ -216,11 +216,12 @@ const Scan = ({ navigation }) => {
                   borderRadius: 2,
                   justifyContent: "space-between",
                   padding: 10,
+                  backgroundColor: '#efeded'
                 }}
               >
                 <Text
                   style={{
-                    fontFamily: "light",
+                    fontFamily: "regular",
                     textAlign: "center",
                     width: 50,
                   }}
@@ -229,7 +230,7 @@ const Scan = ({ navigation }) => {
                 </Text>
                 <Text
                   style={{
-                    fontFamily: "light",
+                    fontFamily: "regular",
                     textAlign: "center",
                     width: 150,
                   }}
@@ -238,7 +239,7 @@ const Scan = ({ navigation }) => {
                 </Text>
                 <Text
                   style={{
-                    fontFamily: "light",
+                    fontFamily: "regular",
                     textAlign: "center",
                     width: 80,
                   }}

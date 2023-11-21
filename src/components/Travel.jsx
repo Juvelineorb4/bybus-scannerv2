@@ -31,6 +31,7 @@ const Travel = ({ item }) => {
           justifyContent: "center",
           padding: 10,
           marginBottom: 10,
+          backgroundColor: '#efeded'
         },
         active && global.mainBgColorSecond,
       ]}
@@ -43,7 +44,7 @@ const Travel = ({ item }) => {
     >
       <Text
         style={[
-          { fontFamily: active ? "light" : "thin", fontSize: 12 },
+          { fontFamily: active ? "bold" : "bold", fontSize: 12 },
           active ? global.white : global.black,
         ]}
       >

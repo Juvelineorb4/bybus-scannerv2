@@ -16,7 +16,7 @@ const ScanTicketList = ({ status = false, cancel = false, ticket }) => {
     >
       <Text
         style={{
-          fontFamily: "light",
+          fontFamily: "regular",
           textAlign: "center",
           fontSize: 12,
           width: 60,
@@ -26,7 +26,7 @@ const ScanTicketList = ({ status = false, cancel = false, ticket }) => {
       </Text>
       <Text
         style={{
-          fontFamily: "light",
+          fontFamily: "regular",
           textAlign: "center",
           fontSize: 12,
           width: 160,
@@ -36,7 +36,7 @@ const ScanTicketList = ({ status = false, cancel = false, ticket }) => {
       </Text>
       <Text
         style={{
-          fontFamily: "regular",
+          fontFamily: "bold",
           textAlign: "center",
           fontSize: 12,
           color: cancel ? "red" : status ? "green" : "grey",

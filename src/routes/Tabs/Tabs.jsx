@@ -12,6 +12,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import styles from "@/utils/styles/Tabs.module.css";
 import SettingsNavigation from "./SettingsNavigation";
 import ScanNavigation from "./ScanNavigation";
+import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 const global = require('@/utils/styles/global.js');
@@ -45,7 +46,7 @@ function MyTabBar({ state, descriptors, navigation }) {
         }}
       >
         <Animated.View
-          style={[styles.slidingTab, global.mainBgColorSecond, { transform: [{ translateX }] }]}
+          style={[styles.slidingTab, global.mainBgColor, { transform: [{ translateX }] }]}
         />
       </View>
       {state.routes.map((route, index) => {
@@ -122,21 +123,41 @@ const TabIcon = ({ isFocused, tabIcon, label, index }) => {
   return (
     <>
       <Animated.View style={{ transform: [{ translateY }] }}>
-        <Image
-          style={{
-            width: 33,
-            height: 33,
-            resizeMode: "contain",
-          }}
-          source={isFocused ? tabIcon.activeIcon : tabIcon.inActiveIcon}
-        />
+      {isFocused ? (
+          tabIcon.activeIcon.type === "ios" ? (
+            <Ionicons
+              name={tabIcon.activeIcon.name}
+              size={tabIcon.activeIcon.size}
+              color={tabIcon.activeIcon.color}
+            />
+          ) : (
+            <MaterialCommunityIcons
+              name={tabIcon.activeIcon.name}
+              size={tabIcon.activeIcon.size}
+              color={tabIcon.activeIcon.color}
+            />
+          )
+        ) : tabIcon.inActiveIcon.type === "ios" ? (
+          <Ionicons
+            name={tabIcon.inActiveIcon.name}
+            size={tabIcon.inActiveIcon.size}
+            color={tabIcon.inActiveIcon.color}
+            style={{marginBottom: 5}}
+          />
+        ) : (
+          <MaterialCommunityIcons
+            name={tabIcon.inActiveIcon.name}
+            size={tabIcon.inActiveIcon.size}
+            color={tabIcon.inActiveIcon.color}
+            style={{marginBottom: 5}}
+          />
+        )}
       </Animated.View>
       <Text
         style={{
-          color: isFocused ? "#261F3C" : "#404040",
+          color: isFocused ? "#000" : "#000",
           fontSize: 12,
-          fontFamily: "light",
-          fontWeight: "thin",
+          fontFamily: "regular",
           marginTop: 5
         }}
       >
@@ -160,8 +181,18 @@ const Tabs = () => {
         key={`Scan_Tab`}
         options={{
           tabBarIcon: {
-            activeIcon: require("@/utils/images/scan_white.png"),
-            inActiveIcon: require("@/utils/images/scan.png"),
+            activeIcon: {
+              type: 'material',
+              color: 'white',
+              size: 24,
+              name: 'data-matrix-scan'
+            },
+            inActiveIcon: {
+              type: 'material',
+              color: 'black',
+              size: 24,
+              name: 'data-matrix-scan'
+            },
           },
           headerShown: false,
           tabBarLabel: "Escanea",
@@ -173,8 +204,18 @@ const Tabs = () => {
         component={SettingsNavigation}
         options={{
           tabBarIcon: {
-            activeIcon: require("@/utils/images/edit_white.png"),
-            inActiveIcon: require("@/utils/images/edit.png"),
+            activeIcon: {
+              type: 'ios',
+              color: 'white',
+              size: 24,
+              name: 'ios-settings-sharp'
+            },
+            inActiveIcon: {
+              type: 'ios',
+              color: 'black',
+              size: 24,
+              name: 'ios-settings-sharp'
+            },
           },
           headerShown: false,
           tabBarLabel: "Opciones",

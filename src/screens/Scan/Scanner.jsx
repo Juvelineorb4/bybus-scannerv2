@@ -17,6 +17,7 @@ import { checkScan } from "@/graphql/mutations";
 // recoil
 import { useRecoilValue } from "recoil";
 import { travelSelect } from "@/atoms/Modals";
+
 const Scanner = ({ navigation }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
@@ -109,7 +110,7 @@ const Scanner = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Empieza a escanear tus tickets</Text>
+      <Text style={styles.title}>Empieza a escanear los tickets</Text>
       {msgSuccess && <Text style={{ color: "green" }}>{msgSuccess}</Text>}
       {error && <Text style={{ color: "red" }}>{error}</Text>}
       {renderCamera()}
@@ -119,7 +120,7 @@ const Scanner = ({ navigation }) => {
         onPress={() => isLoading && setScanned(false)}
       >
         <Text style={styles.buttonText}>
-          {isLoading ? <ActivityIndicator /> : "Escanea tu ticket"}
+          {isLoading ? <ActivityIndicator /> : "Escanear ticket"}
         </Text>
       </TouchableOpacity>
     </View>
@@ -138,7 +139,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontFamily: "light",
+    fontFamily: "bold",
     marginBottom: 30,
     textAlign: "center",
     color: "#ffffff",
@@ -155,15 +156,16 @@ const styles = StyleSheet.create({
   },
   camera: {
     flex: 1,
+    borderRadius: 12,
   },
   button: {
     backgroundColor: "#1f1f1f",
     padding: 20,
-    borderRadius: 5,
+    borderRadius: 12,
   },
   buttonText: {
     color: "white",
     fontSize: 14,
-    fontFamily: "light",
+    fontFamily: "regular",
   },
 });
