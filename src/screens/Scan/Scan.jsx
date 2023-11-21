@@ -117,12 +117,13 @@ const Scan = ({ navigation }) => {
   const onHandlerScanner = () => {
     setError("");
     if (travel) return navigation.navigate("Scanner");
-    setError("*Seleciona un Viaje*");
+    setError("Aun no has selecionado un viaje");
   };
 
   const clean = () => {
     setSelectTravel({});
     setTravel(null);
+    setError("");
   };
 
   const onRefresh = React.useCallback(() => {
@@ -154,7 +155,7 @@ const Scan = ({ navigation }) => {
         ]}
       >
         <View style={{ paddingTop: 80, paddingBottom: 10 }}>
-          <CustomTravels data={travels} />
+          <CustomTravels data={travels} error={() => setError("")}/>
         </View>
         <View>
           <CustomButton
@@ -163,9 +164,9 @@ const Scan = ({ navigation }) => {
             textStyles={[styles.textScan, global.white]}
             buttonStyles={[styles.scan, global.bgBlack]}
           />
-          {error && (
+          {error ? (
             <Text style={{ color: "red", textAlign: "center", fontFamily: 'bold' }}>{error}</Text>
-          )}
+          ): ''}
         </View>
         <BottomSheetModal bottomSheetStyle={{ flex: 1 }}>
           {travel ? (
@@ -210,8 +211,6 @@ const Scan = ({ navigation }) => {
                   alignItems: "center",
                   marginTop: 20,
                   flexDirection: "row",
-                  borderColor: "#1f1f1f",
-                  borderWidth: 0.4,
                   marginHorizontal: 10,
                   borderRadius: 2,
                   justifyContent: "space-between",

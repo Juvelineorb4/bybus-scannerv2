@@ -24,8 +24,6 @@ const Travel = ({ item }) => {
         {
           height: 50,
           width: 125,
-          borderWidth: 0.5,
-          borderColor: "#444",
           borderRadius: 12,
           alignItems: "center",
           justifyContent: "center",
