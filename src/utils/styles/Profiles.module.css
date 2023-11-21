@@ -27,7 +27,7 @@
 }
 
 .title {
-  font-family: "thinItalic";
+  font-family: "regularItalic";
   font-size: 20px;
   /* margin-bottom: 10px; */
 }
@@ -44,7 +44,7 @@
 }
 .modalText {
   /* font-weight: 600; */
-  font-family: "regular";
+  font-family: "bold";
   font-size: 14px;
   margin-left: 5px;
 }
@@ -56,7 +56,7 @@
   height: 400px;
 }
 .modalTextSelect {
-  font-family: "light";
+  font-family: "regular";
   /* font-weight: 500; */
   font-size: 14px;
   color: #8c9199;
@@ -68,7 +68,7 @@
   color: #8c9199cb;
   /* text-transform: capitalize; */
   font-size: 12px;
-  font-family: "light";
+  font-family: "regular";
 }
 .inputContainerTag {
   flex-direction: row;
@@ -83,7 +83,7 @@
 }
 
 .labelInputTag {
-  font-family: "regular";
+  font-family: "bold";
   font-size: 14px;
   color: #404040;
   /* text-transform: capitalize; */
@@ -97,12 +97,12 @@
 }
 .textTag {
   font-size: 12px;
-  font-family: "thin";
+  font-family: "regular";
 }
 
 .textInput {
   flex: 1;
-  font-family: "light";
+  font-family: "regular";
   margin-left: 10px;
   color: #8c9199cb;
   /* text-transform: capitalize; */
@@ -124,17 +124,17 @@
   color: #8c9199cb;
   /* text-transform: capitalize; */
   font-size: 12px;
-  font-family: "light";
+  font-family: "regular";
 }
 .labelInput {
-  font-family: "regular";
+  font-family: "bold";
   font-size: 14px;
   color: #404040;
   /* text-transform: capitalize; */
 }
 .titleTag {
   margin-top: -12px;
-  font-family: "light";
+  font-family: "regular";
   margin-bottom: 12px;
   font-size: 12px;
 }
@@ -157,5 +157,5 @@
   text-align: center;
   /* color: white; */
   font-size: 14px;
-  font-family: "regular";
+  font-family: "bold";
 }

@@ -113,7 +113,7 @@ const Profiles = ({ navigation }) => {
   };
   return (
     <View style={[{ flex: 1, paddingTop: 50 }, global.bgWhite]}>
-      <Text style={{ fontFamily: "light", fontSize: 18, paddingLeft: 20 }}>
+      <Text style={{ fontFamily: "regular", fontSize: 18, paddingLeft: 20 }}>
         Perfiles disponibles "{profiles.length}"
       </Text>
 
@@ -137,7 +137,7 @@ const Profiles = ({ navigation }) => {
             />
             <Text
               style={{
-                fontFamily: "light",
+                fontFamily: "regular",
                 fontSize: 14,
                 textAlign: "center",
                 marginTop: 5,
@@ -165,12 +165,12 @@ const Profiles = ({ navigation }) => {
                     source={require("@/utils/images/arrow_back.png")}
                   />
                 </Pressable>
-                <Text style={{ fontFamily: "thin", fontSize: 14 }}>
+                <Text style={{ fontFamily: "regular", fontSize: 14 }}>
                   Coloca tu PIN para iniciar sesion
                 </Text>
               </View>
               <View style={{ justifyContent: "center", alignItem: "center" }}>
-                <Text>
+                <Text style={{fontFamily: 'regular'}}>
                   {firsTime ? "Primera Vez" : "Ingresar pin"}{" "}
                   {tokenProfile?.name}-{tokenProfile?.type}
                 </Text>

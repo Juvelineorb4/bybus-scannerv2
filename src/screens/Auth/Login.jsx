@@ -31,7 +31,7 @@ const Login = ({ navigation, route }) => {
     setLoading(true);
     try {
       setError("");
-      const result = await Auth.signIn(data.email, data.password);
+      const result = await Auth.signIn(data.email.trim().toLowerCase(), data.password);
     } catch (error) {
       console.log("ERROR LOGIN: ", error.message);
       switch (error.message) {

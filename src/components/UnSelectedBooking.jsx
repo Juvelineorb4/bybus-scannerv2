@@ -4,7 +4,7 @@ import React from "react";
 const UnselectedBooking = () => {
   return (
     <View style={{ flex: 1 }}>
-      <Text style={{ textAlign: "center" }}>Selecciona Un viaje!* </Text>
+      <Text style={{ textAlign: "center", fontFamily: 'bold' }}>Selecciona un viaje </Text>
     </View>
   );
 };

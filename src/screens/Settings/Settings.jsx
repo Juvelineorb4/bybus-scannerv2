@@ -40,7 +40,12 @@ const Settings = () => {
               iconRight: styles.iconRight,
             }}
             icon={{
-              left: require("@/utils/images/profile_white.png"),
+              left: {
+                type: 'ios',
+                color: 'white',
+                size: 20,
+                name: 'ios-person-outline'
+              },
               right: require("@/utils/images/arrow_right.png"),
             }}
           />
@@ -60,7 +65,12 @@ const Settings = () => {
               iconRight: styles.iconRight,
             }}
             icon={{
-              left: require("@/utils/images/exit.png"),
+              left: {
+                type: 'ios',
+                color: 'white',
+                size: 20,
+                name: 'ios-exit-outline'
+              },
               right: require("@/utils/images/arrow_right.png"),
             }}
           />

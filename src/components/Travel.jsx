@@ -24,13 +24,12 @@ const Travel = ({ item }) => {
         {
           height: 50,
           width: 125,
-          borderWidth: 0.5,
-          borderColor: "#444",
           borderRadius: 12,
           alignItems: "center",
           justifyContent: "center",
           padding: 10,
           marginBottom: 10,
+          backgroundColor: '#efeded'
         },
         active && global.mainBgColorSecond,
       ]}
@@ -43,7 +42,7 @@ const Travel = ({ item }) => {
     >
       <Text
         style={[
-          { fontFamily: active ? "light" : "thin", fontSize: 12 },
+          { fontFamily: active ? "bold" : "bold", fontSize: 12 },
           active ? global.white : global.black,
         ]}
       >

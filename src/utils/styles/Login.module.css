@@ -21,7 +21,7 @@
 
 .text {
   font-size: 20px;
-  font-family: "regular";
+  font-family: "bold";
 }
 
 .inputContainer, .inputContainerP {
@@ -38,13 +38,13 @@
   font-size: 14px;
   color: #404040;
   margin-bottom: 3px;
-  font-family: 'regular';
+  font-family: 'bold';
 }
 
 .textInput, .textInputP {
   width: 90%;
   margin-left: 15px;
-  font-family: "regular";
+  font-family: "bold";
 }
 .textInputP {
   width: 78%;
@@ -72,7 +72,7 @@
   padding: 0px 10px;
   align-self: center;
   /* color: #9d9d9d; */
-  font-family: "thin";
+  font-family: "regular";
 }
 
 /* Selects */
@@ -93,7 +93,7 @@
   text-align: center;
   /* color: white; */
   font-size: 14px;
-  font-family: "regular";
+  font-family: "bold";
 }
 
 .extras {
@@ -110,7 +110,7 @@
   font-size: 30px;
   /* color: #1f1f1f; */
   text-align: center;
-  font-family: "thinItalic";
+  font-family: "regularItalic";
 }
 
 .subtitle {
@@ -119,7 +119,7 @@
   text-align: center;
   margin-bottom: 30px;
   /* color: #404040; */
-  font-family: "thin";
+  font-family: "regular";
 }
 
 .forgot {
@@ -127,5 +127,5 @@
   align-self: flex-end;
   font-weight: 400;
   font-size: 14px;
-  font-family: "regular";
+  font-family: "bold";
 }

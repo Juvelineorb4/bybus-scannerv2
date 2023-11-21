@@ -15,7 +15,7 @@ import { useRecoilValue } from "recoil";
 import Travel from "./Travel";
 import { travelSelect } from "../atoms/Modals";
 
-const CustomTravels = ({ data }) => {
+const CustomTravels = ({ data, error }) => {
   const global = require("@/utils/styles/global.js");
   const [modalVisible, setModalVisible] = useState(false);
   const { control } = useForm();
@@ -29,7 +29,10 @@ const CustomTravels = ({ data }) => {
     >
       <TouchableOpacity
         style={[styles.inputContainerTag]}
-        onPress={() => setModalVisible(!modalVisible)}
+        onPress={() => {
+          error()
+          setModalVisible(!modalVisible)
+        }}
       >
         <View>
           {travel.name ? (
