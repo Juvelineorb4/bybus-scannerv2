@@ -221,8 +221,8 @@ const Scan = ({ navigation }) => {
                 <Text
                   style={{
                     fontFamily: "regular",
-                    textAlign: "center",
-                    width: 50,
+                    textAlign: "left",
+                    width: 80,
                   }}
                 >
                   Nombre
@@ -234,7 +234,7 @@ const Scan = ({ navigation }) => {
                     width: 150,
                   }}
                 >
-                  N de ticket
+                  N° ticket
                 </Text>
                 <Text
                   style={{

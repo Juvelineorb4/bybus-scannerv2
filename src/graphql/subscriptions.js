@@ -53,6 +53,7 @@ export const onCreateAgencySubscription = /* GraphQL */ `
       subscriptionDate
       status
       scheduledDate
+      agencyID
       createdAt
       updatedAt
       __typename
@@ -72,6 +73,7 @@ export const onUpdateAgencySubscription = /* GraphQL */ `
       subscriptionDate
       status
       scheduledDate
+      agencyID
       createdAt
       updatedAt
       __typename
@@ -91,6 +93,7 @@ export const onDeleteAgencySubscription = /* GraphQL */ `
       subscriptionDate
       status
       scheduledDate
+      agencyID
       createdAt
       updatedAt
       __typename
@@ -110,6 +113,8 @@ export const onCreateAgency = /* GraphQL */ `
       rif
       email
       phone
+      percentage
+      status
       officies {
         nextToken
         __typename
@@ -142,6 +147,8 @@ export const onUpdateAgency = /* GraphQL */ `
       rif
       email
       phone
+      percentage
+      status
       officies {
         nextToken
         __typename
@@ -174,6 +181,8 @@ export const onDeleteAgency = /* GraphQL */ `
       rif
       email
       phone
+      percentage
+      status
       officies {
         nextToken
         __typename
@@ -352,6 +361,8 @@ export const onCreateEmployee = /* GraphQL */ `
         rif
         email
         phone
+        percentage
+        status
         owner
         createdAt
         updatedAt
@@ -403,6 +414,8 @@ export const onUpdateEmployee = /* GraphQL */ `
         rif
         email
         phone
+        percentage
+        status
         owner
         createdAt
         updatedAt
@@ -454,6 +467,8 @@ export const onDeleteEmployee = /* GraphQL */ `
         rif
         email
         phone
+        percentage
+        status
         owner
         createdAt
         updatedAt
@@ -559,6 +574,7 @@ export const onCreateScheduleBooking = /* GraphQL */ `
         arrivalCity
         stock
         price
+        percentage
         createdBy
         driver
         transport
@@ -593,6 +609,7 @@ export const onUpdateScheduleBooking = /* GraphQL */ `
         arrivalCity
         stock
         price
+        percentage
         createdBy
         driver
         transport
@@ -627,6 +644,7 @@ export const onDeleteScheduleBooking = /* GraphQL */ `
         arrivalCity
         stock
         price
+        percentage
         createdBy
         driver
         transport
@@ -661,6 +679,8 @@ export const onCreateBooking = /* GraphQL */ `
         rif
         email
         phone
+        percentage
+        status
         owner
         createdAt
         updatedAt
@@ -714,6 +734,7 @@ export const onCreateBooking = /* GraphQL */ `
       }
       stock
       price
+      percentage
       createdBy
       driver
       transport
@@ -742,6 +763,8 @@ export const onUpdateBooking = /* GraphQL */ `
         rif
         email
         phone
+        percentage
+        status
         owner
         createdAt
         updatedAt
@@ -795,6 +818,7 @@ export const onUpdateBooking = /* GraphQL */ `
       }
       stock
       price
+      percentage
       createdBy
       driver
       transport
@@ -823,6 +847,8 @@ export const onDeleteBooking = /* GraphQL */ `
         rif
         email
         phone
+        percentage
+        status
         owner
         createdAt
         updatedAt
@@ -876,6 +902,7 @@ export const onDeleteBooking = /* GraphQL */ `
       }
       stock
       price
+      percentage
       createdBy
       driver
       transport
@@ -986,6 +1013,7 @@ export const onCreateCustomer = /* GraphQL */ `
         id
         code
         bookingID
+        orderDetailID
         stop
         customerID
         seating
@@ -996,6 +1024,7 @@ export const onCreateCustomer = /* GraphQL */ `
         createdAt
         updatedAt
         stopBookingTicketsId
+        orderDetailTicketsId
         __typename
       }
       owner
@@ -1021,6 +1050,7 @@ export const onUpdateCustomer = /* GraphQL */ `
         id
         code
         bookingID
+        orderDetailID
         stop
         customerID
         seating
@@ -1031,6 +1061,7 @@ export const onUpdateCustomer = /* GraphQL */ `
         createdAt
         updatedAt
         stopBookingTicketsId
+        orderDetailTicketsId
         __typename
       }
       owner
@@ -1056,6 +1087,7 @@ export const onDeleteCustomer = /* GraphQL */ `
         id
         code
         bookingID
+        orderDetailID
         stop
         customerID
         seating
@@ -1066,6 +1098,7 @@ export const onDeleteCustomer = /* GraphQL */ `
         createdAt
         updatedAt
         stopBookingTicketsId
+        orderDetailTicketsId
         __typename
       }
       owner
@@ -1084,6 +1117,7 @@ export const onCreateTicket = /* GraphQL */ `
       id
       code
       bookingID
+      orderDetailID
       stop
       customerID
       customer {
@@ -1106,6 +1140,7 @@ export const onCreateTicket = /* GraphQL */ `
       createdAt
       updatedAt
       stopBookingTicketsId
+      orderDetailTicketsId
       __typename
     }
   }
@@ -1119,6 +1154,7 @@ export const onUpdateTicket = /* GraphQL */ `
       id
       code
       bookingID
+      orderDetailID
       stop
       customerID
       customer {
@@ -1141,6 +1177,7 @@ export const onUpdateTicket = /* GraphQL */ `
       createdAt
       updatedAt
       stopBookingTicketsId
+      orderDetailTicketsId
       __typename
     }
   }
@@ -1154,6 +1191,7 @@ export const onDeleteTicket = /* GraphQL */ `
       id
       code
       bookingID
+      orderDetailID
       stop
       customerID
       customer {
@@ -1176,105 +1214,7 @@ export const onDeleteTicket = /* GraphQL */ `
       createdAt
       updatedAt
       stopBookingTicketsId
-      __typename
-    }
-  }
-`;
-export const onCreateOrderTicket = /* GraphQL */ `
-  subscription OnCreateOrderTicket(
-    $filter: ModelSubscriptionOrderTicketFilterInput
-    $owner: String
-  ) {
-    onCreateOrderTicket(filter: $filter, owner: $owner) {
-      id
-      orderID
-      ticketID
-      ticket {
-        id
-        code
-        bookingID
-        stop
-        customerID
-        seating
-        status
-        description
-        url
-        owner
-        createdAt
-        updatedAt
-        stopBookingTicketsId
-        __typename
-      }
-      owner
-      createdAt
-      updatedAt
-      orderDetailOrderTicketsId
-      __typename
-    }
-  }
-`;
-export const onUpdateOrderTicket = /* GraphQL */ `
-  subscription OnUpdateOrderTicket(
-    $filter: ModelSubscriptionOrderTicketFilterInput
-    $owner: String
-  ) {
-    onUpdateOrderTicket(filter: $filter, owner: $owner) {
-      id
-      orderID
-      ticketID
-      ticket {
-        id
-        code
-        bookingID
-        stop
-        customerID
-        seating
-        status
-        description
-        url
-        owner
-        createdAt
-        updatedAt
-        stopBookingTicketsId
-        __typename
-      }
-      owner
-      createdAt
-      updatedAt
-      orderDetailOrderTicketsId
-      __typename
-    }
-  }
-`;
-export const onDeleteOrderTicket = /* GraphQL */ `
-  subscription OnDeleteOrderTicket(
-    $filter: ModelSubscriptionOrderTicketFilterInput
-    $owner: String
-  ) {
-    onDeleteOrderTicket(filter: $filter, owner: $owner) {
-      id
-      orderID
-      ticketID
-      ticket {
-        id
-        code
-        bookingID
-        stop
-        customerID
-        seating
-        status
-        description
-        url
-        owner
-        createdAt
-        updatedAt
-        stopBookingTicketsId
-        __typename
-      }
-      owner
-      createdAt
-      updatedAt
-      orderDetailOrderTicketsId
+      orderDetailTicketsId
       __typename
     }
   }
@@ -1294,6 +1234,7 @@ export const onCreateOrderDetail = /* GraphQL */ `
       customerEmail
       total
       isGuest
+      status
       paymentID
       payment {
         id
@@ -1317,6 +1258,7 @@ export const onCreateOrderDetail = /* GraphQL */ `
         arrivalCity
         stock
         price
+        percentage
         createdBy
         driver
         transport
@@ -1325,7 +1267,7 @@ export const onCreateOrderDetail = /* GraphQL */ `
         updatedAt
         __typename
       }
-      orderTickets {
+      tickets {
         nextToken
         __typename
       }
@@ -1353,6 +1295,7 @@ export const onUpdateOrderDetail = /* GraphQL */ `
       customerEmail
       total
       isGuest
+      status
       paymentID
       payment {
         id
@@ -1376,6 +1319,7 @@ export const onUpdateOrderDetail = /* GraphQL */ `
         arrivalCity
         stock
         price
+        percentage
         createdBy
         driver
         transport
@@ -1384,7 +1328,7 @@ export const onUpdateOrderDetail = /* GraphQL */ `
         updatedAt
         __typename
       }
-      orderTickets {
+      tickets {
         nextToken
         __typename
       }
@@ -1412,6 +1356,7 @@ export const onDeleteOrderDetail = /* GraphQL */ `
       customerEmail
       total
       isGuest
+      status
       paymentID
       payment {
         id
@@ -1435,6 +1380,7 @@ export const onDeleteOrderDetail = /* GraphQL */ `
         arrivalCity
         stock
         price
+        percentage
         createdBy
         driver
         transport
@@ -1443,7 +1389,7 @@ export const onDeleteOrderDetail = /* GraphQL */ `
         updatedAt
         __typename
       }
-      orderTickets {
+      tickets {
         nextToken
         __typename
       }
@@ -1533,6 +1479,7 @@ export const onCreateOrderDetailHistory = /* GraphQL */ `
         customerEmail
         total
         isGuest
+        status
         paymentID
         bookingID
         userID
@@ -1574,6 +1521,7 @@ export const onUpdateOrderDetailHistory = /* GraphQL */ `
         customerEmail
         total
         isGuest
+        status
         paymentID
         bookingID
         userID
@@ -1615,6 +1563,7 @@ export const onDeleteOrderDetailHistory = /* GraphQL */ `
         customerEmail
         total
         isGuest
+        status
         paymentID
         bookingID
         userID

@@ -7,6 +7,7 @@ import {
   Modal,
   FlatList,
   TouchableOpacity,
+  RefreshControl,
 } from "react-native";
 import styles from "@/utils/styles/Profiles.module.css";
 import React, { useEffect, useState } from "react";
@@ -33,6 +34,7 @@ const Profiles = ({ navigation }) => {
   const [firsTime, setFirsTime] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [errorModal, setErrorModal] = useState("");
+  const [refreshing, setRefreshing] = React.useState(false);
   const { control, handleSubmit, watch } = useForm({
     defaultValues: {
       // email: email,
@@ -41,6 +43,14 @@ const Profiles = ({ navigation }) => {
   });
 
   const pinModal = watch("code");
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      if (userAuth) fetchEmployeesProfile();
+      setRefreshing(false);
+    }, 2000);
+  }, []);
 
   useEffect(() => {
     const stringPin = pinModal.join("");
@@ -112,90 +122,97 @@ const Profiles = ({ navigation }) => {
     }
   };
   return (
-    <View style={[{ flex: 1, paddingTop: 50 }, global.bgWhite]}>
-      <Text style={{ fontFamily: "regular", fontSize: 18, paddingLeft: 20 }}>
-        Perfiles disponibles "{profiles.length}"
-      </Text>
+    <ScrollView
+      contentContainerStyle={{ flex: 1 }}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
+    >
+      <View style={[{ flex: 1, paddingTop: 50 }, global.bgWhite]}>
+        <Text style={{ fontFamily: "regular", fontSize: 18, paddingLeft: 20 }}>
+          Perfiles disponibles "{profiles.length}"
+        </Text>
 
-      <View style={[styles.container, global.bgWhite]}>
-        {profiles.map((profile) => (
-          <TouchableOpacity
-            key={profile.id}
-            style={styles.column}
-            onPress={() => {
-              onHandlerProfileSelect(profile);
-            }}
-          >
-            <Image
-              style={{
-                width: 60,
-                height: 60,
-                resizeMode: "cover",
-                borderRadius: 2,
-              }}
-              source={require("@/utils/images/email.png")}
-            />
-            <Text
-              style={{
-                fontFamily: "regular",
-                fontSize: 14,
-                textAlign: "center",
-                marginTop: 5,
+        <View style={[styles.container, global.bgWhite]}>
+          {profiles.map((profile) => (
+            <TouchableOpacity
+              key={profile.id}
+              style={styles.column}
+              onPress={() => {
+                onHandlerProfileSelect(profile);
               }}
             >
-              {profile.name}
-            </Text>
-          </TouchableOpacity>
-        ))}
-        <Modal animationType="none" transparent={true} visible={modalVisible}>
-          <View style={styles.modalContainer}>
-            <View style={styles.modalContent}>
-              <View style={styles.modalTop}>
-                <Pressable
-                  onPress={() => {
-                    setModalVisible(!modalVisible);
-                  }}
-                >
-                  <Image
-                    style={{
-                      width: 35,
-                      height: 35,
-                      resizeMode: "contain",
-                    }}
-                    source={require("@/utils/images/arrow_back.png")}
-                  />
-                </Pressable>
-                <Text style={{ fontFamily: "regular", fontSize: 14 }}>
-                  Coloca tu PIN para iniciar sesion
-                </Text>
-              </View>
-              <View style={{ justifyContent: "center", alignItem: "center" }}>
-                <Text style={{fontFamily: 'regular'}}>
-                  {firsTime ? "Primera Vez" : "Ingresar pin"}{" "}
-                  {tokenProfile?.name}-{tokenProfile?.type}
-                </Text>
-              </View>
-              <View
+              <Image
                 style={{
-                  flex: 1,
-                  flexDirection: "column",
-                  justifyContent: "space-around",
+                  width: 60,
+                  height: 60,
+                  resizeMode: "cover",
+                  borderRadius: 2,
+                }}
+                source={require("@/utils/images/email.png")}
+              />
+              <Text
+                style={{
+                  fontFamily: "regular",
+                  fontSize: 14,
+                  textAlign: "center",
+                  marginTop: 5,
                 }}
               >
-                <EnterCode control={control} />
-                <CustomButton
-                  text={`Iniciar sesion`}
-                  disabled={buttonDisabled ? true : false}
-                  handlePress={handleSubmit(onHandleProfileLogin)}
-                  textStyles={[styles.textLogin, global.white]}
-                  buttonStyles={[styles.login, global.mainBgColorSecond]}
-                />
+                {profile.name}
+              </Text>
+            </TouchableOpacity>
+          ))}
+          <Modal animationType="none" transparent={true} visible={modalVisible}>
+            <View style={styles.modalContainer}>
+              <View style={styles.modalContent}>
+                <View style={styles.modalTop}>
+                  <Pressable
+                    onPress={() => {
+                      setModalVisible(!modalVisible);
+                    }}
+                  >
+                    <Image
+                      style={{
+                        width: 35,
+                        height: 35,
+                        resizeMode: "contain",
+                      }}
+                      source={require("@/utils/images/arrow_back.png")}
+                    />
+                  </Pressable>
+                  <Text style={{ fontFamily: "regular", fontSize: 14 }}>
+                    Coloca tu PIN para iniciar sesion
+                  </Text>
+                </View>
+                <View style={{ justifyContent: "center", alignItem: "center" }}>
+                  <Text style={{ fontFamily: "regular" }}>
+                    {firsTime ? "Primera Vez" : "Ingresar pin"}{" "}
+                    {tokenProfile?.name}-{tokenProfile?.type}
+                  </Text>
+                </View>
+                <View
+                  style={{
+                    flex: 1,
+                    flexDirection: "column",
+                    justifyContent: "space-around",
+                  }}
+                >
+                  <EnterCode control={control} />
+                  <CustomButton
+                    text={`Iniciar sesion`}
+                    disabled={buttonDisabled ? true : false}
+                    handlePress={handleSubmit(onHandleProfileLogin)}
+                    textStyles={[styles.textLogin, global.white]}
+                    buttonStyles={[styles.login, global.mainBgColorSecond]}
+                  />
+                </View>
               </View>
             </View>
-          </View>
-        </Modal>
+          </Modal>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

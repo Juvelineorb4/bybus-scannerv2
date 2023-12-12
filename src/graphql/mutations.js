@@ -14,6 +14,8 @@ export const deleteAgency = /* GraphQL */ `
       rif
       email
       phone
+      percentage
+      status
       officies {
         nextToken
         __typename
@@ -49,6 +51,7 @@ export const deleteCustomer = /* GraphQL */ `
         id
         code
         bookingID
+        orderDetailID
         stop
         customerID
         seating
@@ -59,6 +62,7 @@ export const deleteCustomer = /* GraphQL */ `
         createdAt
         updatedAt
         stopBookingTicketsId
+        orderDetailTicketsId
         __typename
       }
       owner
@@ -77,6 +81,7 @@ export const deleteTicket = /* GraphQL */ `
       id
       code
       bookingID
+      orderDetailID
       stop
       customerID
       customer {
@@ -99,39 +104,7 @@ export const deleteTicket = /* GraphQL */ `
       createdAt
       updatedAt
       stopBookingTicketsId
-      __typename
-    }
-  }
-`;
-export const deleteOrderTicket = /* GraphQL */ `
-  mutation DeleteOrderTicket(
-    $input: DeleteOrderTicketInput!
-    $condition: ModelOrderTicketConditionInput
-  ) {
-    deleteOrderTicket(input: $input, condition: $condition) {
-      id
-      orderID
-      ticketID
-      ticket {
-        id
-        code
-        bookingID
-        stop
-        customerID
-        seating
-        status
-        description
-        url
-        owner
-        createdAt
-        updatedAt
-        stopBookingTicketsId
-        __typename
-      }
-      owner
-      createdAt
-      updatedAt
-      orderDetailOrderTicketsId
+      orderDetailTicketsId
       __typename
     }
   }
@@ -192,6 +165,7 @@ export const createAgencySubscription = /* GraphQL */ `
       subscriptionDate
       status
       scheduledDate
+      agencyID
       createdAt
       updatedAt
       __typename
@@ -212,6 +186,7 @@ export const updateAgencySubscription = /* GraphQL */ `
       subscriptionDate
       status
       scheduledDate
+      agencyID
       createdAt
       updatedAt
       __typename
@@ -232,6 +207,7 @@ export const deleteAgencySubscription = /* GraphQL */ `
       subscriptionDate
       status
       scheduledDate
+      agencyID
       createdAt
       updatedAt
       __typename
@@ -251,6 +227,8 @@ export const createAgency = /* GraphQL */ `
       rif
       email
       phone
+      percentage
+      status
       officies {
         nextToken
         __typename
@@ -283,6 +261,8 @@ export const updateAgency = /* GraphQL */ `
       rif
       email
       phone
+      percentage
+      status
       officies {
         nextToken
         __typename
@@ -470,6 +450,8 @@ export const createEmployee = /* GraphQL */ `
         rif
         email
         phone
+        percentage
+        status
         owner
         createdAt
         updatedAt
@@ -521,6 +503,8 @@ export const updateEmployee = /* GraphQL */ `
         rif
         email
         phone
+        percentage
+        status
         owner
         createdAt
         updatedAt
@@ -572,6 +556,8 @@ export const deleteEmployee = /* GraphQL */ `
         rif
         email
         phone
+        percentage
+        status
         owner
         createdAt
         updatedAt
@@ -677,6 +663,7 @@ export const createScheduleBooking = /* GraphQL */ `
         arrivalCity
         stock
         price
+        percentage
         createdBy
         driver
         transport
@@ -711,6 +698,7 @@ export const updateScheduleBooking = /* GraphQL */ `
         arrivalCity
         stock
         price
+        percentage
         createdBy
         driver
         transport
@@ -745,6 +733,7 @@ export const deleteScheduleBooking = /* GraphQL */ `
         arrivalCity
         stock
         price
+        percentage
         createdBy
         driver
         transport
@@ -779,6 +768,8 @@ export const createBooking = /* GraphQL */ `
         rif
         email
         phone
+        percentage
+        status
         owner
         createdAt
         updatedAt
@@ -832,6 +823,7 @@ export const createBooking = /* GraphQL */ `
       }
       stock
       price
+      percentage
       createdBy
       driver
       transport
@@ -860,6 +852,8 @@ export const updateBooking = /* GraphQL */ `
         rif
         email
         phone
+        percentage
+        status
         owner
         createdAt
         updatedAt
@@ -913,6 +907,7 @@ export const updateBooking = /* GraphQL */ `
       }
       stock
       price
+      percentage
       createdBy
       driver
       transport
@@ -941,6 +936,8 @@ export const deleteBooking = /* GraphQL */ `
         rif
         email
         phone
+        percentage
+        status
         owner
         createdAt
         updatedAt
@@ -994,6 +991,7 @@ export const deleteBooking = /* GraphQL */ `
       }
       stock
       price
+      percentage
       createdBy
       driver
       transport
@@ -1104,6 +1102,7 @@ export const createCustomer = /* GraphQL */ `
         id
         code
         bookingID
+        orderDetailID
         stop
         customerID
         seating
@@ -1114,6 +1113,7 @@ export const createCustomer = /* GraphQL */ `
         createdAt
         updatedAt
         stopBookingTicketsId
+        orderDetailTicketsId
         __typename
       }
       owner
@@ -1139,6 +1139,7 @@ export const updateCustomer = /* GraphQL */ `
         id
         code
         bookingID
+        orderDetailID
         stop
         customerID
         seating
@@ -1149,6 +1150,7 @@ export const updateCustomer = /* GraphQL */ `
         createdAt
         updatedAt
         stopBookingTicketsId
+        orderDetailTicketsId
         __typename
       }
       owner
@@ -1167,6 +1169,7 @@ export const createTicket = /* GraphQL */ `
       id
       code
       bookingID
+      orderDetailID
       stop
       customerID
       customer {
@@ -1189,6 +1192,7 @@ export const createTicket = /* GraphQL */ `
       createdAt
       updatedAt
       stopBookingTicketsId
+      orderDetailTicketsId
       __typename
     }
   }
@@ -1202,6 +1206,7 @@ export const updateTicket = /* GraphQL */ `
       id
       code
       bookingID
+      orderDetailID
       stop
       customerID
       customer {
@@ -1224,72 +1229,7 @@ export const updateTicket = /* GraphQL */ `
       createdAt
       updatedAt
       stopBookingTicketsId
-      __typename
-    }
-  }
-`;
-export const createOrderTicket = /* GraphQL */ `
-  mutation CreateOrderTicket(
-    $input: CreateOrderTicketInput!
-    $condition: ModelOrderTicketConditionInput
-  ) {
-    createOrderTicket(input: $input, condition: $condition) {
-      id
-      orderID
-      ticketID
-      ticket {
-        id
-        code
-        bookingID
-        stop
-        customerID
-        seating
-        status
-        description
-        url
-        owner
-        createdAt
-        updatedAt
-        stopBookingTicketsId
-        __typename
-      }
-      owner
-      createdAt
-      updatedAt
-      orderDetailOrderTicketsId
-      __typename
-    }
-  }
-`;
-export const updateOrderTicket = /* GraphQL */ `
-  mutation UpdateOrderTicket(
-    $input: UpdateOrderTicketInput!
-    $condition: ModelOrderTicketConditionInput
-  ) {
-    updateOrderTicket(input: $input, condition: $condition) {
-      id
-      orderID
-      ticketID
-      ticket {
-        id
-        code
-        bookingID
-        stop
-        customerID
-        seating
-        status
-        description
-        url
-        owner
-        createdAt
-        updatedAt
-        stopBookingTicketsId
-        __typename
-      }
-      owner
-      createdAt
-      updatedAt
-      orderDetailOrderTicketsId
+      orderDetailTicketsId
       __typename
     }
   }
@@ -1309,6 +1249,7 @@ export const createOrderDetail = /* GraphQL */ `
       customerEmail
       total
       isGuest
+      status
       paymentID
       payment {
         id
@@ -1332,6 +1273,7 @@ export const createOrderDetail = /* GraphQL */ `
         arrivalCity
         stock
         price
+        percentage
         createdBy
         driver
         transport
@@ -1340,7 +1282,7 @@ export const createOrderDetail = /* GraphQL */ `
         updatedAt
         __typename
       }
-      orderTickets {
+      tickets {
         nextToken
         __typename
       }
@@ -1368,6 +1310,7 @@ export const updateOrderDetail = /* GraphQL */ `
       customerEmail
       total
       isGuest
+      status
       paymentID
       payment {
         id
@@ -1391,6 +1334,7 @@ export const updateOrderDetail = /* GraphQL */ `
         arrivalCity
         stock
         price
+        percentage
         createdBy
         driver
         transport
@@ -1399,7 +1343,7 @@ export const updateOrderDetail = /* GraphQL */ `
         updatedAt
         __typename
       }
-      orderTickets {
+      tickets {
         nextToken
         __typename
       }
@@ -1427,6 +1371,7 @@ export const deleteOrderDetail = /* GraphQL */ `
       customerEmail
       total
       isGuest
+      status
       paymentID
       payment {
         id
@@ -1450,6 +1395,7 @@ export const deleteOrderDetail = /* GraphQL */ `
         arrivalCity
         stock
         price
+        percentage
         createdBy
         driver
         transport
@@ -1458,7 +1404,7 @@ export const deleteOrderDetail = /* GraphQL */ `
         updatedAt
         __typename
       }
-      orderTickets {
+      tickets {
         nextToken
         __typename
       }
@@ -1543,6 +1489,7 @@ export const createOrderDetailHistory = /* GraphQL */ `
         customerEmail
         total
         isGuest
+        status
         paymentID
         bookingID
         userID
@@ -1579,6 +1526,7 @@ export const updateOrderDetailHistory = /* GraphQL */ `
         customerEmail
         total
         isGuest
+        status
         paymentID
         bookingID
         userID
@@ -1615,6 +1563,7 @@ export const deleteOrderDetailHistory = /* GraphQL */ `
         customerEmail
         total
         isGuest
+        status
         paymentID
         bookingID
         userID
@@ -1713,5 +1662,10 @@ export const registerAgencyAdmin = /* GraphQL */ `
 export const checkScan = /* GraphQL */ `
   mutation CheckScan($input: CheckScanInput) {
     checkScan(input: $input)
+  }
+`;
+export const reprogram = /* GraphQL */ `
+  mutation Reprogram($input: String) {
+    reprogram(input: $input)
   }
 `;
