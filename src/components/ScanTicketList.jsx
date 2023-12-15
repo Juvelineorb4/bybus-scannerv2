@@ -19,7 +19,7 @@ const ScanTicketList = ({ status = false, cancel = false, ticket }) => {
           fontFamily: "regular",
           textAlign: "center",
           fontSize: 12,
-          width: 60,
+          width: 80,
         }}
       >
         {ticket?.customer === null ? "--------" : ticket?.customer?.fullName}
@@ -43,8 +43,15 @@ const ScanTicketList = ({ status = false, cancel = false, ticket }) => {
           width: 90,
         }}
       >
-        {/* {cancel ? "CANCELADO" : status ? "ABORDO" : "SIN ABORDAR"} */}
-        {ticket?.status?.toUpperCase()}
+        {ticket?.status?.toUpperCase() === "PAID"
+          ? "PAGADO"
+          : ticket?.status?.toUpperCase() === "BOARDED"
+          ? "ABORDADO"
+          : ticket?.status?.toUpperCase() === "CANCELLED"
+          ? "CANCELADO"
+          : ticket?.status?.toUpperCase() === "RETURNED"
+          ? "RETORNADO"
+          : ticket?.status?.toUpperCase()}
       </Text>
     </View>
   );
