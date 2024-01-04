@@ -128,7 +128,7 @@ const Profiles = ({ navigation }) => {
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }
     >
-      <View style={[{ flex: 1, paddingTop: 50 }, global.bgWhite]}>
+      <View style={[{ flex: 1, paddingTop: 70 }, global.bgWhite]}>
         <Text style={{ fontFamily: "regular", fontSize: 18, paddingLeft: 20 }}>
           Perfiles disponibles "{profiles.length}"
         </Text>

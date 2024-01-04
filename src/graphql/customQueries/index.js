@@ -134,6 +134,7 @@ export const getBooking = /* GraphQL */ `
           id
           code
           bookingID
+          orderDetailID
           stop
           customerID
           customer {
@@ -190,6 +191,15 @@ export const getBooking = /* GraphQL */ `
       createdAt
       updatedAt
       __typename
+    }
+  }
+`;
+
+export const getOrderDetail = /* GraphQL */ `
+  query GetOrderDetail($id: ID!) {
+    getOrderDetail(id: $id) {
+      id
+      status
     }
   }
 `;

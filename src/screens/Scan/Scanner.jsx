@@ -66,6 +66,7 @@ const Scanner = ({ navigation }) => {
       console.log("Error al chequiar Ticket: ", error.message);
     }
     setIsloading(false);
+    setScanned(false);
   };
 
   const handleBarCodeScanned = async ({ type, data }) => {
@@ -73,16 +74,16 @@ const Scanner = ({ navigation }) => {
     Alert.alert("Escaner", `Escaneaste el ticket ${data} ¿quieres aceptarlo?`, [
       {
         text: "Cancelar",
-        onPress: () => console.log("Cancelado"),
+        onPress: () => setScanned(false),
         style: "cancel",
       },
       {
         text: "Aceptar",
-        onPress: () => onHandlerCheckTicket(data),
+        onPress: () => {
+          onHandlerCheckTicket(data);
+        },
       },
     ]);
-
-    // alert(`Escaneaste el ticket ${data} ¿quieres aceptarlo?`);
   };
 
   const renderCamera = () => {
