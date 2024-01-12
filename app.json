@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "scanner",
+    "name": "Bybus Scanner",
     "slug": "scanner",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "orientation": "portrait",
     "icon": "./src/utils/images/logo_scan.png",
     "userInterfaceStyle": "automatic",
@@ -54,7 +54,7 @@
         "android.permission.RECORD_AUDIO",
         "android.permission.CAMERA"
       ],
-      "versionCode": 20
+      "versionCode": 21
     },
     "web": {
       "favicon": "./src/utils/images/favicon.png"
