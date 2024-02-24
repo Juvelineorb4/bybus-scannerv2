@@ -90,15 +90,14 @@ const Navigation = () => {
             headerShown: false,
           }}
         />
-        {userAuth && tokenProfile?.type === "COLLECTOR" && (
-          <Stack.Screen
-            name={`Tabs`}
-            component={Tabs}
-            options={{
-              headerShown: false,
-            }}
-          />
-        )}
+
+        <Stack.Screen
+          name={`Tabs`}
+          component={Tabs}
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

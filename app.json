@@ -54,7 +54,7 @@
         "android.permission.RECORD_AUDIO",
         "android.permission.CAMERA"
       ],
-      "versionCode": 25
+      "versionCode": 26
     },
     "web": {
       "favicon": "./src/utils/images/favicon.png"
