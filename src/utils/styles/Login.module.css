@@ -24,7 +24,8 @@
   font-family: "bold";
 }
 
-.inputContainer, .inputContainerP {
+.inputContainer,
+.inputContainerP {
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -34,14 +35,16 @@
   margin-bottom: 25px;
 }
 
-.labelInput, .labelInputP {
+.labelInput,
+.labelInputP {
   font-size: 14px;
   color: #404040;
   margin-bottom: 3px;
-  font-family: 'bold';
+  font-family: "bold";
 }
 
-.textInput, .textInputP {
+.textInput,
+.textInputP {
   width: 90%;
   margin-left: 15px;
   font-family: "bold";
@@ -49,7 +52,8 @@
 .textInputP {
   width: 78%;
 }
-.errorInput {}
+.errorInput {
+}
 
 /* Line */
 .hairline {
@@ -85,8 +89,8 @@
   text-align: center;
   width: 100%;
   padding: 20px 10px;
-  /* background-color: #1a1528; */
   border-radius: 16px;
+  margin-bottom: 15px;
 }
 
 .textLogin {
@@ -103,7 +107,6 @@
   border: 1px solid #efeded;
   border-radius: 16px;
 }
-
 
 .title {
   font-weight: 100;

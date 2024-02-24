@@ -5,17 +5,19 @@ import CustomSelect from "@/components/CustomSelect";
 import { Auth } from "aws-amplify";
 import { useRecoilState } from "recoil";
 import { tokenProfileGlobal, travelSelect } from "@/atoms/Modals";
-const Settings = () => {
+const Settings = ({ navigation }) => {
   const global = require("@/utils/styles/global.js");
   const [tokenProfile, setTokenProfile] = useRecoilState(tokenProfileGlobal);
   const [selectTravel, setSelectTravel] = useRecoilState(travelSelect);
   const onHandlerLogout = async () => {
     await Auth.signOut();
+    navigation.replace("Welcome_Navigation", { screen: "Login" });
   };
 
   const onHandlerChangeProfile = () => {
     setTokenProfile(null);
     setSelectTravel({});
+    navigation.replace("Welcome_Navigation", { screen: "Profiles" });
   };
 
   return (
@@ -41,10 +43,10 @@ const Settings = () => {
             }}
             icon={{
               left: {
-                type: 'ios',
-                color: 'white',
+                type: "ios",
+                color: "white",
                 size: 20,
-                name: 'ios-person-outline'
+                name: "ios-person-outline",
               },
               right: require("@/utils/images/arrow_right.png"),
             }}
@@ -66,10 +68,10 @@ const Settings = () => {
             }}
             icon={{
               left: {
-                type: 'ios',
-                color: 'white',
+                type: "ios",
+                color: "white",
                 size: 20,
-                name: 'ios-exit-outline'
+                name: "ios-exit-outline",
               },
               right: require("@/utils/images/arrow_right.png"),
             }}

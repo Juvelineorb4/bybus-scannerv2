@@ -62,8 +62,8 @@ const CustomTravels = ({ data, error }) => {
                 >
                   <Image
                     style={{
-                      width: 25,
-                      height: 25,
+                      width: 40,
+                      height: 40,
                       resizeMode: "contain",
                     }}
                     source={require("@/utils/images/arrow_back.png")}

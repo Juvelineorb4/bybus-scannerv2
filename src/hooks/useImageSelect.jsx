@@ -26,7 +26,7 @@ const useImageSelect = () => {
             })
             return key;
         } catch (error) {
-            console.error(error);
+            // console.error(error);
         }
 
     };
@@ -38,7 +38,7 @@ const useImageSelect = () => {
             const url = await Storage.get(key, { level: "protected" })
             return url
         } catch (error) {
-            console.error(error)
+            // console.error(error)
         }
     };
 

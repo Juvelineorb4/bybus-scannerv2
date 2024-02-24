@@ -110,10 +110,12 @@ const Profiles = ({ navigation }) => {
           },
         });
         setTokenProfileGlobal(tokenProfile);
+        setModalVisible(!modalVisible);
         await navigation.replace("Tabs");
       } else {
         if (tokenProfile.pin === stringPin) {
           setTokenProfileGlobal(tokenProfile);
+          setModalVisible(!modalVisible);
           await navigation.replace("Tabs");
         }
       }
@@ -142,14 +144,26 @@ const Profiles = ({ navigation }) => {
                 onHandlerProfileSelect(profile);
               }}
             >
+              {console.log("HOLAAA:", profile)}
+              <Text
+                style={{
+                  fontFamily: "regular",
+                  fontSize: 11,
+                  textAlign: "center",
+                  marginTop: 5,
+                }}
+              >
+                {profile?.office?.state}-{profile?.office?.city}
+              </Text>
               <Image
                 style={{
-                  width: 60,
-                  height: 60,
+                  width: 50,
+                  height: 50,
                   resizeMode: "cover",
                   borderRadius: 2,
+                  marginTop: 5,
                 }}
-                source={require("@/utils/images/email.png")}
+                source={require("@/utils/images/user.png")}
               />
               <Text
                 style={{

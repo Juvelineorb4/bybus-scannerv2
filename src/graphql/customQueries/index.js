@@ -33,6 +33,10 @@ export const getAgencyEmployees = /* GraphQL */ `
           type
           agencyID
           officeID
+          office {
+            state
+            city
+          }
           lastConnection
           createdAt
           updatedAt

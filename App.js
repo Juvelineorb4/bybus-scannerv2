@@ -1,7 +1,7 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import Navigation from "@/routes/Navigation";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
@@ -9,6 +9,7 @@ import { RecoilRoot } from "recoil";
 // exportaciones amplify
 import { Amplify } from "aws-amplify";
 import awsconfig from "./src/aws-exports";
+import { StatusBar } from "expo-status-bar";
 
 // Configuracion de Amplify
 Amplify.configure(awsconfig);
@@ -43,6 +44,7 @@ export default function App() {
       <GestureHandlerRootView style={{ flex: 1 }}>
         <RecoilRoot>
           <BottomSheetModalProvider>
+            <StatusBar style="dark" />
             <Navigation />
           </BottomSheetModalProvider>
         </RecoilRoot>

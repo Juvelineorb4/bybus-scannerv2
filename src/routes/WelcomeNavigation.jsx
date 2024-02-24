@@ -28,7 +28,7 @@ const WelcomeNavigation = () => {
             name="Login"
             component={Login}
             options={{
-              header: () => <Header mode="back-only" />,
+              headerShown: false,
               animation: "slide_from_right",
             }}
           />

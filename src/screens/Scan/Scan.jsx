@@ -12,7 +12,7 @@ import CustomButton from "@/components/CustomButton";
 import ScanTicketList from "@/components/ScanTicketList";
 import CustomTravels from "@/components/CustomTravels";
 import UnSelectedView from "@/components/UnSelectedBooking";
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons } from "@expo/vector-icons";
 // amplify
 import { API } from "aws-amplify";
 import * as queries from "@/graphql/customQueries";
@@ -30,6 +30,7 @@ const Scan = ({ navigation }) => {
 
   const fetchBookingsAvailable = async () => {
     try {
+      console.log(tokenProfile);
       const result = await API.graphql({
         query: queries.listBookingsAvailable,
         authMode: "AMAZON_COGNITO_USER_POOLS",
@@ -37,6 +38,7 @@ const Scan = ({ navigation }) => {
           filter: {
             and: [
               { agencyID: { eq: tokenProfile?.agencyID } },
+              { officeID: { eq: tokenProfile?.officeID } },
               { status: { eq: "AVAILABLE" } },
             ],
           },
@@ -155,7 +157,7 @@ const Scan = ({ navigation }) => {
         ]}
       >
         <View style={{ paddingTop: 80, paddingBottom: 10 }}>
-          <CustomTravels data={travels} error={() => setError("")}/>
+          <CustomTravels data={travels} error={() => setError("")} />
         </View>
         <View>
           <CustomButton
@@ -165,8 +167,14 @@ const Scan = ({ navigation }) => {
             buttonStyles={[styles.scan, global.bgBlack]}
           />
           {error ? (
-            <Text style={{ color: "red", textAlign: "center", fontFamily: 'bold' }}>{error}</Text>
-          ): ''}
+            <Text
+              style={{ color: "red", textAlign: "center", fontFamily: "bold" }}
+            >
+              {error}
+            </Text>
+          ) : (
+            ""
+          )}
         </View>
         <BottomSheetModal bottomSheetStyle={{ flex: 1 }}>
           {travel ? (
@@ -215,7 +223,7 @@ const Scan = ({ navigation }) => {
                   borderRadius: 2,
                   justifyContent: "space-between",
                   padding: 10,
-                  backgroundColor: '#efeded'
+                  backgroundColor: "#efeded",
                 }}
               >
                 <Text
