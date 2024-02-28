@@ -40,6 +40,7 @@ const Navigation = () => {
         case "signOut":
           setTokenProfile(null);
           setUserAuth(null);
+          
           break;
       }
     });
